@@ -1,0 +1,16 @@
+#mySlider.carousel.slide(data-ride="carousel").pb-3
+    ol.carousel-indicators
+        li(data-target="mySlider" data-slide-to="0").active
+        li(data-target="mySlider" data-slide-to="1")
+        li(data-target="mySlider" data-slide-to="2")
+    .carousel-inner
+        .carousel-item.active 
+            img(src="/img/rsz_1pure-css-coverflow-slider.png" alt="First slide").d-block.w-100
+        .carousel-item 
+            img(src="/img/rsz_maxresdefault.jpg" alt="Secondslide").d-block.w-100
+        .carousel-item
+            img(src="/img/rsz_slider-img.png" alt="Third slide").d-block.w-100
+    a(href="#mySlider" role="button" data-slide="prev").carousel-control-prev
+        span(aria-hidden="true").carousel-control-prev-icon
+    a(href="#mySlider" role="button" data-slide="next").carousel-control-next
+        span(aria-hidden="true").carousel-control-next-icon 
