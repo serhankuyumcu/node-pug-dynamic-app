@@ -14,6 +14,15 @@ const multer = require('multer');
 const errorController = require('./controllers/error');
 require('dotenv').config();
 sgMail.setApiKey('env.process.SENDGRID_API_KEY')
+console.log(sgMail.setApiKey('env.process.SENDGRID_API_KEY')
+)
+const nodemailer = require('nodemailer');
+const nodemailerSendgrid = require('nodemailer-sendgrid');
+const transport = nodemailer.createTransport(
+nodemailerSendgrid({
+     apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
 
 

@@ -111,7 +111,7 @@ exports.postRegister = (req,res,next)=>{
                 subject: 'Registration is done',
                 html: '<h1>Succesfull Registration</h1>',
                 }
-                sgMail.send(msg)
+            transport.sendMail(msg);
                 
         })
         .catch(err=>{
