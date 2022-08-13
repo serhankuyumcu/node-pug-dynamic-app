@@ -3,13 +3,7 @@ const bcrypt = require('bcrypt');
 const sgMail = require('@sendgrid/mail')
 const crypto = require('crypto');
 const Login = require('../models/login');
-const nodemailer = require('nodemailer');
-const nodemailerSendgrid = require('nodemailer-sendgrid');
-const transport = nodemailer.createTransport(
-nodemailerSendgrid({
-     apiKey: process.env.SENDGRID_API_KEY
-  })
-);
+
 
 exports.getLogin = (req,res,next)=>{
     var successMessage = req.session.successMessage;
@@ -118,7 +112,7 @@ exports.postRegister = (req,res,next)=>{
                 subject: 'Registration is done',
                 html: '<h1>Succesfull Registration</h1>',
                 }
-            transport.sendMail(msg);
+            sgMail.send(msg);
                 
         })
         .catch(err=>{
