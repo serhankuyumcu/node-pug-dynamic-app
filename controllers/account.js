@@ -3,6 +3,13 @@ const bcrypt = require('bcrypt');
 const sgMail = require('@sendgrid/mail')
 const crypto = require('crypto');
 const Login = require('../models/login');
+const nodemailer = require('nodemailer');
+const nodemailerSendgrid = require('nodemailer-sendgrid');
+const transport = nodemailer.createTransport(
+nodemailerSendgrid({
+     apiKey: process.env.SENDGRID_API_KEY
+  })
+);
 
 exports.getLogin = (req,res,next)=>{
     var successMessage = req.session.successMessage;
