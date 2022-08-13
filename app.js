@@ -13,8 +13,9 @@ const sgMail = require('@sendgrid/mail');
 const multer = require('multer');
 const errorController = require('./controllers/error');
 require('dotenv').config();
-sgMail.setApiKey('env.process.SENDGRID_API_KEY')
-console.log(sgMail.setApiKey('env.process.SENDGRID_API_KEY')
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+console.log(sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 )
 
 
@@ -36,7 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname,'public')));
 
 const DB = (process.env.DATABASE_URL);
-
+console.log(DB)
 var store = new MongoDBStore({
   uri: DB,
   collection: 'mySessions'
